@@ -1,0 +1,46 @@
+.footer {
+  padding: 6rem 2rem;
+  text-align: center;
+  /* border-top: 1px solid rgba(148, 163, 184, 0.1); */
+}
+
+.footer h2 {
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+
+.footer a {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer p {
+  margin-top: 5rem;
+  font-size: 0.8rem;
+  color: var(--slate);
+}
+
+.sayHello {
+  background: var(--gold);
+  border: 1px solid rgba(250, 204, 21, 0.6);
+  color: var(--navy);
+  font-family: cursive;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sayHello:hover {
+  background: rgba(250, 204, 21, 0.15);
+  transform: translateY(-2px);
+}
+
+

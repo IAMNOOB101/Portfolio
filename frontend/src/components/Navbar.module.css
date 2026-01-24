@@ -1,0 +1,35 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  background: rgba(2, 6, 23, 0.7);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  z-index: 100;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+}
+
+.links a {
+  margin-left: 2rem;
+  color: var(--slate);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: var(--gold);
+}

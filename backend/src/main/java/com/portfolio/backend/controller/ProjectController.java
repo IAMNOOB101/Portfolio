@@ -12,6 +12,7 @@ import java.util.List;
     "http://localhost:5173",
     "http://localhost:4173",
     "https://*.netlify.app",
+    "https://*.onrender.com",
     "${FRONTEND_URL:https://aadi-portfolio.netlify.app}"
 })
 public class ProjectController {

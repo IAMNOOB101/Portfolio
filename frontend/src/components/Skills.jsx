@@ -8,13 +8,14 @@ import {
   Cpu,
   GitBranch,
   Box,
-  Globe
+  Globe,
+  Sparkles
 } from "lucide-react";
 import styles from "./Skills.module.css";
 
 const container = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } }
 };
 
 const item = {
@@ -34,8 +35,8 @@ const skills = {
     { name: "SQL", Icon: Database, link: "https://www.w3schools.com/sql/" }
   ],
   frontend: [
-    { name: "HTML", Icon: Globe, link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
-    { name: "CSS", Icon: Globe, link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+    { name: "HTML5", Icon: Globe, link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+    { name: "CSS3", Icon: Globe, link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
     { name: "React.js", Icon: Cpu, link: "https://react.dev/" },
     { name: "Bootstrap", Icon: Box, link: "https://getbootstrap.com/docs/" }
   ],
@@ -72,49 +73,61 @@ export default function Skills() {
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <motion.h2 variants={item} className={styles.heading}>
-        Skills & Expertise
-      </motion.h2>
+      <motion.div variants={item} className={styles.headerGroup}>
+        <span className={styles.sectionBadge}>TECHNICAL PROFICIENCY</span>
+        <h2 className={styles.heading}>Skills & Expertise</h2>
+      </motion.div>
 
-      {Object.entries({
-        "Programming Languages": skills.programming,
-        "Frontend Development": skills.frontend,
-        "Backend & APIs": skills.backend,
-        Databases: skills.databases,
-        "Cloud & Tools": skills.tools,
-        "Core Computer Science": skills.core
-      }).map(([title, list]) => (
-        <motion.div key={title} variants={item} className={styles.block}>
-          <h3>{title}</h3>
-          <div className={styles.grid}>
-            {list.map(({ name, Icon, link }) => (
-              <a
-                key={name}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.skill}
-              >
-                <Icon size={16} />
-                <span>{name}</span>
-              </a>
-            ))}
-          </div>
-        </motion.div>
-      ))}
+      <div className={styles.blocksGrid}>
+        {Object.entries({
+          "Languages": skills.programming,
+          "Frontend": skills.frontend,
+          "Backend & APIs": skills.backend,
+          "Databases": skills.databases,
+          "Cloud & Tools": skills.tools,
+          "CS Fundamentals": skills.core
+        }).map(([title, list]) => (
+          <motion.div key={title} variants={item} className={styles.block}>
+            <h3>
+              <Sparkles size={14} className={styles.blockIcon} /> {title}
+            </h3>
+            <div className={styles.grid}>
+              {list.map(({ name, Icon, link }) => (
+                <motion.a
+                  key={name}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -4, scale: 1.04 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={styles.skill}
+                >
+                  <Icon size={16} className={styles.skillIcon} />
+                  <span>{name}</span>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
 
-      <motion.div variants={item} className={styles.block}>
-        <h3>Soft Skills</h3>
+      <motion.div variants={item} className={styles.blockFull}>
+        <h3>Soft Skills & Leadership</h3>
         <div className={styles.grid}>
           {[
             "Problem Solving",
             "Leadership & Initiative",
-            "Communication",
-            "Time Management"
+            "Clear Communication",
+            "Time Management",
+            "Agile Collaboration"
           ].map((skill) => (
-            <span key={skill} className={styles.soft}>
+            <motion.span
+              key={skill}
+              whileHover={{ y: -3, scale: 1.03 }}
+              className={styles.soft}
+            >
               {skill}
-            </span>
+            </motion.span>
           ))}
         </div>
       </motion.div>

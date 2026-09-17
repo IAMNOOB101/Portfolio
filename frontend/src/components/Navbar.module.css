@@ -1,35 +1,88 @@
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), #f59e0b, #38bdf8);
+  transform-origin: 0%;
+  z-index: 101;
+}
+
 .nav {
   position: fixed;
   top: 0;
   width: 100%;
-  backdrop-filter: blur(12px);
-  background: rgba(2, 6, 23, 0.7);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  backdrop-filter: blur(16px);
+  background: rgba(2, 6, 23, 0.85);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
   z-index: 100;
+  transition: all 0.3s ease;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 1rem 2rem;
+  padding: 0.85rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
 .logo {
+  font-family: 'Poppins', sans-serif;
   font-weight: 900;
-  letter-spacing: 0.3em;
+  font-size: 1.3rem;
+  letter-spacing: 0.25em;
   color: var(--gold);
 }
 
+.logoTag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  color: var(--gold);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.rightGroup {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.links {
+  display: flex;
+  gap: 1.8rem;
+}
+
 .links a {
-  margin-left: 2rem;
   color: var(--slate);
   text-decoration: none;
-  transition: color 0.3s;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .links a:hover {
   color: var(--gold);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0.75rem 1rem;
+  }
+
+  .links {
+    display: none;
+  }
 }

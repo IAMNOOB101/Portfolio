@@ -1,0 +1,69 @@
+.bgContainer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background-color: #020617;
+}
+
+.scenicImage {
+  position: absolute;
+  inset: 0;
+  background-image: url("/scenic-bg.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  filter: brightness(0.65) contrast(1.1) saturate(1.1);
+  transform-origin: center;
+}
+
+.vignetteOverlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 50% 20%, rgba(2, 6, 23, 0.3) 0%, rgba(2, 6, 23, 0.85) 75%),
+    linear-gradient(to bottom, rgba(2, 6, 23, 0.7) 0%, rgba(2, 6, 23, 0.5) 40%, rgba(2, 6, 23, 0.95) 100%);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+}
+
+.orbGold {
+  top: 15%;
+  left: 30%;
+  width: 45vw;
+  height: 45vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent 70%);
+  opacity: 0.8;
+}
+
+.orbCyan {
+  top: 45%;
+  right: 15%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 650px;
+  max-height: 650px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 70%);
+  opacity: 0.7;
+}
+
+.starsOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 150px 80px, rgba(255, 215, 0, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 290px 120px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 400px 220px, #ffffff, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  opacity: 0.35;
+}

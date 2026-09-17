@@ -1,11 +1,11 @@
 .divider {
   height: 1.5px;
-  margin: 2rem;
-  max-width: 70%;
+  margin: 1rem auto;
+  max-width: 60%;
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255, 215, 0, 0.5),
+    rgba(255, 215, 0, 0.4),
     transparent
   );
 }

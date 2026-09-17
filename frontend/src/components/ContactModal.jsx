@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Linkedin, Instagram, Github, X } from "lucide-react";
 import styles from "./ContactModal.module.css";
 
 export default function ContactModal({ onClose }) {
@@ -44,7 +45,49 @@ ${form.name}
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <h2>Contact Aadarsh</h2>
+        <div className={styles.modalHeader}>
+          <h2>Contact Aadarsh</h2>
+          <button onClick={onClose} className={styles.closeIconBtn}>
+            <X size={18} />
+          </button>
+        </div>
+
+        <div className={styles.quickLinks}>
+          <a
+            href="https://www.linkedin.com/in/aadarshagrawal03/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.quickLinkBtn}
+            title="LinkedIn Profile"
+          >
+            <Linkedin size={16} />
+            <span>LinkedIn</span>
+          </a>
+          <a
+            href="https://www.instagram.com/agrawal_aadarsh_007/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.quickLinkBtn}
+            title="Instagram Profile"
+          >
+            <Instagram size={16} />
+            <span>Instagram</span>
+          </a>
+          <a
+            href="https://github.com/IAMNOOB101"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.quickLinkBtn}
+            title="GitHub Profile"
+          >
+            <Github size={16} />
+            <span>GitHub</span>
+          </a>
+        </div>
+
+        <div className={styles.dividerOr}>
+          <span>OR SEND DIRECT MESSAGE</span>
+        </div>
 
         <form onSubmit={handleSubmit}>
           <input

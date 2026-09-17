@@ -1,9 +1,10 @@
 import { useCallback, useRef } from "react";
 import { motion } from "framer-motion";
+import { Sparkles, ArrowDown } from "lucide-react";
 import styles from "./Hero.module.css";
 import { fadeUp, stagger } from "../animations/motionVariants";
+import ResumeButton from "./ResumeButton";
 
-// Magnetic button effect — uses callback ref to avoid react-hooks/refs lint errors
 function useMagneticRef() {
   const elRef = useRef(null);
 
@@ -29,7 +30,7 @@ function useMagneticRef() {
   return { ref, onMouseMove, onMouseLeave };
 }
 
-export default function Hero() {
+export default function Hero({ onNotify }) {
   const primaryMagnetic = useMagneticRef();
   const secondaryMagnetic = useMagneticRef();
 
@@ -48,21 +49,33 @@ export default function Hero() {
         animate="visible"
         className={styles.content}
       >
-        <motion.span variants={fadeUp} className={styles.badge}>
-          FULL STACK DEVELOPER
-        </motion.span>
+        <motion.div variants={fadeUp} className={styles.badgeWrapper}>
+          <span className={styles.statusDot} />
+          <span className={styles.badge}>
+            <Sparkles size={13} className={styles.sparkleIcon} /> FULL STACK DEVELOPER
+          </span>
+        </motion.div>
 
         <motion.h1 variants={fadeUp} className={styles.title}>
-          <span>AADARSH AGRAWAL</span>
+          <span className={styles.nameGradient}>AADARSH AGRAWAL</span>
         </motion.h1>
 
         <motion.p variants={fadeUp} className={styles.subtitle}>
-          Full-Stack Developer building modern, scalable web applications
+          Building high-performance, scalable web applications with clean architecture,
           <br />
-          focused on performance, clean architecture, and exceptional user
-          experience
+          seamless full-stack APIs, and exceptional user experiences.
         </motion.p>
 
+        {/* Tech tags preview */}
+        <motion.div variants={fadeUp} className={styles.techPills}>
+          {["Spring Boot", "React.js", "Java", "Node.js", "MongoDB", "Python"].map((tech) => (
+            <span key={tech} className={styles.techPill}>
+              {tech}
+            </span>
+          ))}
+        </motion.div>
+
+        {/* Primary CTAs including Download Resume */}
         <motion.div variants={fadeUp} className={styles.actions}>
           <button
             ref={primaryMagnetic.ref}
@@ -74,6 +87,8 @@ export default function Hero() {
             View Work
           </button>
 
+          <ResumeButton variant="hero" onNotify={onNotify} />
+
           <button
             ref={secondaryMagnetic.ref}
             onMouseMove={secondaryMagnetic.onMouseMove}
@@ -83,6 +98,15 @@ export default function Hero() {
           >
             Contact
           </button>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          variants={fadeUp}
+          className={styles.scrollIndicator}
+          onClick={() => scrollTo("skills")}
+        >
+          <ArrowDown size={18} />
         </motion.div>
       </motion.div>
     </section>

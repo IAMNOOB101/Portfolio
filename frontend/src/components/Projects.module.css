@@ -1,27 +1,122 @@
+.projects {
+  padding: 8rem 2rem;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.heading {
+  font-family: var(--font-display, 'Poppins', sans-serif);
+  font-size: 3.5rem;
+  color: var(--white);
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.notice {
+  text-align: center;
+  color: var(--slate);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  opacity: 0.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .heading {
+    font-size: 2.5rem;
+  }
+}
+
 .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #0f172a, #020617);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  transition: border-color 0.3s;
 }
 
 .card:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 215, 0, 0.25);
 }
 
-.links a {
-  position: relative;
-  color: #facc15;
-}
-
-.links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background: #facc15;
-  transition: width 0.3s ease;
-}
-
-.links a:hover::after {
+.imageWrapper {
   width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+  background: #0f172a;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .imageWrapper img {
+  transform: scale(1.04);
+}
+
+.card h3 {
+  font-family: var(--font-display, 'Poppins', sans-serif);
+  font-size: 1.6rem;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  margin: 0.5rem 0 1.5rem;
+  color: var(--slate);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tags span {
+  font-size: 0.72rem;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  color: var(--slate);
+  letter-spacing: 0.03em;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.link:hover {
+  opacity: 0.75;
+}
+
+.linkDisabled {
+  color: var(--slate);
+  font-size: 0.9rem;
+  opacity: 0.45;
+  cursor: default;
 }

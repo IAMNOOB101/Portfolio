@@ -1,11 +1,37 @@
+import { useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import styles from "./Hero.module.css";
-import useMagnetic from "../hooks/useMagnetic";
 import { fadeUp, stagger } from "../animations/motionVariants";
 
+// Magnetic button effect — uses callback ref to avoid react-hooks/refs lint errors
+function useMagneticRef() {
+  const elRef = useRef(null);
+
+  const ref = useCallback((node) => {
+    elRef.current = node;
+  }, []);
+
+  const onMouseMove = useCallback((e) => {
+    const el = elRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+  }, []);
+
+  const onMouseLeave = useCallback(() => {
+    if (elRef.current) {
+      elRef.current.style.transform = "translate(0,0)";
+    }
+  }, []);
+
+  return { ref, onMouseMove, onMouseLeave };
+}
+
 export default function Hero() {
-  const primaryMagnetic = useMagnetic();
-  const secondaryMagnetic = useMagnetic();
+  const primaryMagnetic = useMagneticRef();
+  const secondaryMagnetic = useMagneticRef();
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -33,7 +59,8 @@ export default function Hero() {
         <motion.p variants={fadeUp} className={styles.subtitle}>
           Full-Stack Developer building modern, scalable web applications
           <br />
-          focused on performance, clean architecture, and exceptional user experience
+          focused on performance, clean architecture, and exceptional user
+          experience
         </motion.p>
 
         <motion.div variants={fadeUp} className={styles.actions}>

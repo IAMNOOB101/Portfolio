@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Set this in Netlify Dashboard > Site settings > Environment variables
+  # VITE_API_BASE_URL = "https://your-railway-backend.up.railway.app/api"
+  NODE_VERSION = "20"
+
+# SPA redirect: all routes serve index.html (required for React Router if added later)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

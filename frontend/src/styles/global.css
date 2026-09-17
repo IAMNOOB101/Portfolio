@@ -1,14 +1,19 @@
 * {
-  will-change: transform;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body, 'Inter', system-ui, -apple-system, sans-serif);
   background: var(--navy);
   color: var(--slate);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Glow card effect — only applied to elements that opt-in via .glow class */
 .glow {
   position: relative;
 }
@@ -22,9 +27,11 @@ body {
     rgba(255, 215, 0, 0.35),
     transparent 60%
   );
+  border-radius: inherit;
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
+  z-index: 0;
 }
 
 .glow:hover::after {
@@ -34,4 +41,11 @@ body {
 section {
   position: relative;
   z-index: 1;
+}
+
+/* Hide cursor glow on touch/mobile devices */
+@media (pointer: coarse) {
+  #cursor-glow {
+    display: none !important;
+  }
 }

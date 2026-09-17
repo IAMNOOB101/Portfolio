@@ -1,0 +1,41 @@
+# ---- Java / Maven ----
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+nohup.out
+
+# ---- Node / Frontend ----
+node_modules/
+dist/
+.cache/
+*.zip
+
+# ---- Environment / Secrets ----
+.env
+.env.local
+.env.production
+.env.staging
+!.env.example
+
+# ---- IDEs ----
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+.settings/
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- Misc ----
+demo/
+logs/
+*.log

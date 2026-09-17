@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import TechTicker from "../components/TechTicker";
-import ProjectCard from "../components/ProjectCard";
+import Projects from "../components/Projects";
 import Footer from "../components/Footer";
 import CursorGlow from "../components/CursorGlow";
 import SectionDivider from "../components/SectionDivider";
@@ -17,7 +17,7 @@ export default function Home() {
       <SectionDivider />
       <Skills />
       <SectionDivider />
-      <ProjectCard />
+      <Projects />
       <SectionDivider />
       <Footer />
     </>

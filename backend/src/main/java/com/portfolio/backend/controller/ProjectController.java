@@ -8,7 +8,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/projects")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "http://localhost:4173",
+    "https://*.netlify.app",
+    "${FRONTEND_URL:https://aadi-portfolio.netlify.app}"
+})
 public class ProjectController {
 
     private final ProjectService service;
